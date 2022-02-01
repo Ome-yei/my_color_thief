@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import colorThief from "colorthief";
 import styled from 'styled-components';
-import './App.css';
 
 import DisplayImage from './components/DisplayImage';
 import UploadImage from './components/UploadImage';
@@ -34,7 +32,7 @@ function App() {
   }
 
    return (
-    <div className="App">
+    <AppContainer>
       <h1>Color Thief</h1>
       <DisplayImage imgSrc={imgSrc} setColorPalette={setColorPalette}/>
       <UploadImage handleImageChange={handleImageChange} />
@@ -45,8 +43,14 @@ function App() {
         inputUrl={inputUrl}
       />
       <ColorContainer colorPalette={colorPalette}/>
-    </div>
+    </AppContainer>
   );
 }
 
 export default App;
+
+const AppContainer = styled.div`
+  border : 5px solid black;
+  padding: 1.2em 1em 0 1em;
+  text-align: center;
+`;

@@ -28,7 +28,6 @@ export default function DisplayImage({ imgSrc, setColorPalette }) {
 
 const ImageContainer = styled.div`
 border: 1px solid red;
-max-width: 300px;
-max-height: 500px;
-position: relative;
+margin: 0 auto;
+max-width: 600px;
 `;
