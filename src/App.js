@@ -6,11 +6,12 @@ import UploadImage from './components/UploadImage';
 import PasteUrl from './components/PasteUrl';
 import ColorContainer from './components/ColorContainer';
 
+
 function App() {
 
   const [imgSrc, setImgSrc] = useState('');
   const [inputUrl, setInputUrl] = useState('');
-  const [colorPalette, setColorPalette] = useState([]); 
+  const [colorPalette, setColorPalette] = useState([[], []]); 
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -32,7 +33,7 @@ function App() {
   }
 
    return (
-    <AppContainer>
+    <AppContainer dominantColor={colorPalette[0]}>
       <h1>Color Thief</h1>
       <DisplayImage imgSrc={imgSrc} setColorPalette={setColorPalette}/>
       <UploadImage handleImageChange={handleImageChange} />
@@ -50,7 +51,10 @@ function App() {
 export default App;
 
 const AppContainer = styled.div`
-  border : 5px solid black;
+  // border : 5px solid black;
+  min-height: 100vh;
+  background-color: ${props => props.dominantColor[0]};
+  color: ${props => props.dominantColor[1]};
   padding: 1.2em 1em 0 1em;
   text-align: center;
 `;

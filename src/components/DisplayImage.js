@@ -11,10 +11,9 @@ export default function DisplayImage({ imgSrc, setColorPalette }) {
   console.log('IMAGE RENDER');
   return (
     <ImageContainer>
-      <img
+      <Displaytheimage
         src={imgSrc}
         alt=''
-        style={{ maxWidth: "100%", height: "auto", }}
         crossOrigin="anonymous"
         ref={image}
         onLoad={() => {
@@ -27,7 +26,13 @@ export default function DisplayImage({ imgSrc, setColorPalette }) {
 }
 
 const ImageContainer = styled.div`
-border: 1px solid red;
+// border: 1px solid red;
 margin: 0 auto;
-max-width: 600px;
+max-width: 500px;
+`;
+
+const Displaytheimage = styled.img`
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 `;

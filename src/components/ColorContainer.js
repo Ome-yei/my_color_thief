@@ -11,7 +11,7 @@ export default function ColorContainer({ colorPalette }) {
               {color[0]}
             </Color>
           }) :
-          <p>Data not found</p>
+          <p></p>
       }
     </Container>
   )
@@ -19,9 +19,10 @@ export default function ColorContainer({ colorPalette }) {
 
 
 const Container = styled.div`
-  border: 1px solid blue;
+  // border: 1px solid blue;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 1.2em;
+  margin 1.2em auto;
+  max-width: 800px;
 `;

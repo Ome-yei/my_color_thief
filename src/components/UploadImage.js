@@ -5,7 +5,7 @@ export default function UploadImage({ handleImageChange }) {
     <UploadImageContainer>
       <div>
         <h2>Drag and Drop Your Image</h2>
-        <p class="spectrum-Body--secondary spectrum-IllustratedMessage-description">
+        <p>
           <span>
             <span>or <span>
             <Link>Select a File</Link>
@@ -21,16 +21,18 @@ export default function UploadImage({ handleImageChange }) {
 
 
 const UploadImageContainer = styled.div`
-  border: 1px solid black;
+  // border: 1px solid black;
   padding: 2em 1.875em;
   position: relative;
   border-style: dashed;
   border-color: #e1e1e1;
-  margin-top: 1.2em;
+  margin: 1.2em auto;
+  max-width: 400px;
+  max-height: 500px;
 `;
 
 const UploadImageInput = styled.input`
-  border: 1px solid green;
+  // border: 1px solid green;
   cursor: pointer;
   position: absolute;
   top: 0;
