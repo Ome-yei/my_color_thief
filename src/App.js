@@ -38,9 +38,9 @@ function App() {
       <AppContainer dominantColor={colorPalette[0]}>
         <Title>Color Thief</Title>
         <DisplayImage imgSrc={imgSrc} setColorPalette={setColorPalette} />
-        <h3 style={{marginTop: '1em'}}>Paste Url</h3>
+        <h3 style={{marginTop: '1em'}}>Upload Image</h3>
         <UploadImage handleImageChange={handleImageChange} />
-        <p>OR</p>
+        <p style={{marginTop: '1em'}}>OR</p>
         <h3 style={{marginTop: '1em'}}>Paste Url</h3>
         <PasteUrl
           handleInputChange={handleInputChange}
