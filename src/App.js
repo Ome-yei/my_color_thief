@@ -36,10 +36,12 @@ function App() {
   return (
     <ImgDominantColor.Provider value={colorPalette[0][0]}>
       <AppContainer dominantColor={colorPalette[0]}>
-        <h1>Color Thief</h1>
+        <Title>Color Thief</Title>
         <DisplayImage imgSrc={imgSrc} setColorPalette={setColorPalette} />
+        <h3 style={{marginTop: '1em'}}>Paste Url</h3>
         <UploadImage handleImageChange={handleImageChange} />
         <p>OR</p>
+        <h3 style={{marginTop: '1em'}}>Paste Url</h3>
         <PasteUrl
           handleInputChange={handleInputChange}
           handleSubmit={handleSubmit}
@@ -60,4 +62,9 @@ const AppContainer = styled.div`
   color: ${props => props.dominantColor[1]};
   padding: 1.2em 1em 0 1em;
   text-align: center;
+`;
+
+const Title = styled.h1`
+  text-transform: uppercase;
+  font-size: 2.8em;
 `;

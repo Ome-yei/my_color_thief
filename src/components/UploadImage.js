@@ -32,7 +32,7 @@ const UploadImageContainer = styled.div`
   position: relative;
   border-style: dashed;
   border-color: ${props => props.darkerColor };
-  margin: 1.2em auto;
+  margin: .2em auto;
   max-width: 400px;
   max-height: 500px;
 `;
@@ -51,4 +51,5 @@ const UploadImageInput = styled.input`
 const Link = styled.span`
 color: ${props => props.brightenColor};
 cursor: pointer;
+font-style: italic;
 `;

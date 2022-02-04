@@ -48,5 +48,5 @@ const PasteUrlForm = styled.form`
   display: flex;
   align-items: flex-start;
   max-width: 400px;
-  margin: 1.2em auto;
+  margin: .2em auto;
 `;
