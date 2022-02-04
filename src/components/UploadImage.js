@@ -1,14 +1,20 @@
+import { useContext } from 'react';
+import { ImgDominantColor } from './themeContext';
 import styled from 'styled-components';
+import helpers from './helpers';
 
 export default function UploadImage({ handleImageChange }) {
+
+  const value = useContext(ImgDominantColor);
+
   return (
-    <UploadImageContainer>
+    <UploadImageContainer darkerColor={helpers.darkenColor(value)}>
       <div>
         <h2>Drag and Drop Your Image</h2>
         <p>
           <span>
             <span>or <span>
-            <Link>Select a File</Link>
+            <Link brightenColor={helpers.brightenColor(value)}>Select a File</Link>
           </span> from your computer
           </span>
           </span>
@@ -25,7 +31,7 @@ const UploadImageContainer = styled.div`
   padding: 2em 1.875em;
   position: relative;
   border-style: dashed;
-  border-color: #e1e1e1;
+  border-color: ${props => props.darkerColor };
   margin: 1.2em auto;
   max-width: 400px;
   max-height: 500px;
@@ -43,6 +49,6 @@ const UploadImageInput = styled.input`
 `;
 
 const Link = styled.span`
-color: #1473e6;
+color: ${props => props.brightenColor};
 cursor: pointer;
 `;

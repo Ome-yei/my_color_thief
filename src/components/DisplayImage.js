@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 import helpers from './helpers';
-
 
 export default function DisplayImage({ imgSrc, setColorPalette }) {
   const image = React.createRef();

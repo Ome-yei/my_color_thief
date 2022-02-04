@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+import { ImgDominantColor } from './components/themeContext';
+
 import DisplayImage from './components/DisplayImage';
 import UploadImage from './components/UploadImage';
 import PasteUrl from './components/PasteUrl';
 import ColorContainer from './components/ColorContainer';
 
-
 function App() {
 
   const [imgSrc, setImgSrc] = useState('');
   const [inputUrl, setInputUrl] = useState('');
-  const [colorPalette, setColorPalette] = useState([[], []]); 
+  const [colorPalette, setColorPalette] = useState([[], []]);
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -32,19 +33,21 @@ function App() {
     console.log('Inside handleSubmit', inputUrl)
   }
 
-   return (
-    <AppContainer dominantColor={colorPalette[0]}>
-      <h1>Color Thief</h1>
-      <DisplayImage imgSrc={imgSrc} setColorPalette={setColorPalette}/>
-      <UploadImage handleImageChange={handleImageChange} />
-      <p>OR</p>
-      <PasteUrl
-        handleInputChange={handleInputChange}
-        handleSubmit={handleSubmit}
-        inputUrl={inputUrl}
-      />
-      <ColorContainer colorPalette={colorPalette}/>
-    </AppContainer>
+  return (
+    <ImgDominantColor.Provider value={colorPalette[0][0]}>
+      <AppContainer dominantColor={colorPalette[0]}>
+        <h1>Color Thief</h1>
+        <DisplayImage imgSrc={imgSrc} setColorPalette={setColorPalette} />
+        <UploadImage handleImageChange={handleImageChange} />
+        <p>OR</p>
+        <PasteUrl
+          handleInputChange={handleInputChange}
+          handleSubmit={handleSubmit}
+          inputUrl={inputUrl}
+        />
+        <ColorContainer colorPalette={colorPalette} />
+      </AppContainer>
+    </ImgDominantColor.Provider>
   );
 }
 

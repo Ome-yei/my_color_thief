@@ -40,6 +40,22 @@ const getColors = (img, colorCounts) => {
   return [dominatColorCombo, hexArray];
 }
 
+const darkenColor = (color) => {
+  if(color){
+    const shade = chroma(color).darken().hex();
+    return shade
+  }
+}
+
+const brightenColor = (color) => {
+  if(color){
+    const brighter = chroma(color).brighten().hex();
+    return brighter;
+  }
+}
+
 export default {
   getColors,
+  darkenColor,
+  brightenColor
 }
