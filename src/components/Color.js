@@ -1,14 +1,41 @@
 import styled from 'styled-components';
+import { useState } from 'react';
+import { Tooltip } from '@mui/material';
+import Fade from '@mui/material/Fade';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-export default function Color({backgroundColor, textColor, children}){
-  return(
-    <SingleColor backgroundColor={backgroundColor} textColor={textColor}>
-      {children}
-    </SingleColor>
+export default function Color({ backgroundColor, textColor, children }) {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    if (!clicked) {
+      setClicked(!clicked);
+      setTimeout(() => {
+        setClicked(false);
+      }, 2000)
+    }
+  }
+  return (
+    <Tooltip TransitionComponent={Fade}
+    TransitionProps={{ timeout: 600 }} title={clicked ? 'Copied' : 'Copy'} placement="top" arrow>
+      <SingleColor backgroundColor={backgroundColor} textColor={textColor} onClick={handleClick}>
+        <CopyToClipboard text={backgroundColor}>
+          <span style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            display: ' flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>{children}</span>
+        </CopyToClipboard>
+      </SingleColor>
+    </Tooltip>
   )
 }
 
 const SingleColor = styled.div`
+  position: relative;
   height: 100px;
   color: ${props => props.textColor};
   background-color: ${props => props.backgroundColor};
